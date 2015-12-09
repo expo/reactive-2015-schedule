@@ -97,7 +97,7 @@ class FilterScreen extends Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: theme.colors.white, }}>
-        <View style={theme.header}>
+        <View style={[theme.header, theme.detailsHeader]}>
           <Text ref={'title'} style={theme.caption}>FILTER SETTINGS</Text>
           <TouchableOpacity
             style={[theme.prevBtnContainer, { left: 0, }, ]}

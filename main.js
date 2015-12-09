@@ -13,6 +13,7 @@ const filterReducer = require('./reducers/filter');
 const React = require('react-native');
 const {
   AppRegistry,
+  BackAndroid,
   StatusBarIOS,
   Component,
   Navigator,
@@ -24,6 +25,17 @@ export default class Reactive2015 extends Component {
   componentDidMount() {
     if (StatusBarIOS) {
       StatusBarIOS.setStyle('light-content');
+    }
+
+    if (BackAndroid) {
+      BackAndroid.addEventListener('hardwareBackPress', () => {
+        if (this._navigator.getCurrentRoutes().length > 1) {
+          this._navigator.pop();
+          return true;
+        }
+
+        return false;
+      });
     }
   }
 
@@ -43,6 +55,7 @@ export default class Reactive2015 extends Component {
       <Provider store={store}>
         {() => (
           <Navigator
+            ref={(view) => { this._navigator = view; }}
             renderScene={this.renderScene}
             initialRoute={{ component: ScheduleScreen, }}/>
         )}
