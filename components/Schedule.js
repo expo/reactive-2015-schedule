@@ -7,10 +7,13 @@ const debounce = require('debounce');
 const { connect } = require('react-redux/native');
 const {
   Component,
+  Dimensions,
   ListView,
   View,
   InteractionManager,
 } = React;
+
+const deviceWidth = Dimensions.get('window').width;
 
 const ds = new ListView.DataSource({
   rowHasChanged: (r1, r2) => true,
@@ -59,8 +62,9 @@ class Schedule extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, }}>
+      <View style={{ width: deviceWidth, flex: 1 }}>
         <ListView
+          style={{flex: 1}}
           dataSource={this.state.ds}
           renderRow={(rowData) =>
             <ScheduleItem

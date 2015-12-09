@@ -1,0 +1,63 @@
+{
+  "name": "react-native-radio-buttons",
+  "version": "0.6.0",
+  "description": "A react component to implement custom radio buttons-like behaviors: multiple options, only on can be selected at once.",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "cd examples && npm i && open examples.xcodeproj"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ArnaudRinquin/react-native-radio-buttons.git"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.8.0"
+  },
+  "keywords": [
+    "react-component",
+    "react-native",
+    "ios",
+    "radio-buttons",
+    "radio",
+    "segmentedcontrols",
+    "segmented-controls"
+  ],
+  "author": {
+    "name": "Arnaud Rinquin",
+    "email": "rinquin.arnaud@gmail.com",
+    "url": "http://github.com/ArnaudRinquin"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArnaudRinquin/react-native-radio-buttons/issues"
+  },
+  "homepage": "https://github.com/ArnaudRinquin/react-native-radio-buttons#readme",
+  "dependencies": {
+    "object-assign": "^3.0.0"
+  },
+  "gitHead": "34121a33f2fdb306424026af97325b9f20d85d6e",
+  "_id": "react-native-radio-buttons@0.6.0",
+  "_shasum": "42d77b134642b4babf650da54508a27498b2e12f",
+  "_from": "react-native-radio-buttons@*",
+  "_npmVersion": "2.14.9",
+  "_nodeVersion": "4.2.1",
+  "_npmUser": {
+    "name": "arnaudrinquin",
+    "email": "rinquin.arnaud@gmail.com"
+  },
+  "dist": {
+    "shasum": "42d77b134642b4babf650da54508a27498b2e12f",
+    "tarball": "http://registry.npmjs.org/react-native-radio-buttons/-/react-native-radio-buttons-0.6.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "arnaudrinquin",
+      "email": "rinquin.arnaud@gmail.com"
+    }
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-radio-buttons/-/react-native-radio-buttons-0.6.0.tgz"
+}

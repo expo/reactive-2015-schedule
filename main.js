@@ -1,3 +1,10 @@
+const HOST = 'https://s3-us-west-2.amazonaws.com/examples-exp/reactive/';
+window.requireImage = function(name) {
+  return {
+    uri: HOST + name.replace('image!', '') + '.png',
+  }
+}
+
 const theme = require('./components/theme');
 const { createStore, applyMiddleware, bindActionCreators } = require('redux');
 const { Provider } = require('react-redux/native');
@@ -13,9 +20,11 @@ const {
 
 const store = createStore(filterReducer);
 
-class Reactive2015 extends Component {
+export default class Reactive2015 extends Component {
   componentDidMount() {
-    StatusBarIOS.setStyle('light-content');
+    if (StatusBarIOS) {
+      StatusBarIOS.setStyle('light-content');
+    }
   }
 
   renderScene(route, navigator) {
@@ -42,4 +51,4 @@ class Reactive2015 extends Component {
   }
 }
 
-AppRegistry.registerComponent('Reactive2015', () => Reactive2015);
+AppRegistry.registerComponent('main', () => Reactive2015);

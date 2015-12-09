@@ -1,18 +1,22 @@
 {
-  "name": "Reactive2015",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+  "name": "reactive-2015",
+  "version": "1.0.0",
+  "description": "Reactive 2015 Conference Schedule",
+  "main": "main.js",
+  "author": "brentvatne@gmail.com",
+  "exp": {
+    "name": "Reactive 2015 Schedule",
+    "primaryColor": "#17764E",
+    "iconUrl": "https://s3-us-west-2.amazonaws.com/examples-exp/reactive/app-icon.png"
   },
   "dependencies": {
     "debounce": "^1.0.0",
-    "react-native": "^0.11.4",
-    "react-native-blur": "^0.7.1",
-    "react-native-navbar": "^0.8.2",
+    "react-native": "exponentjs/react-native#2015-11-13",
+    "react-native-navbar": "^1.0.7",
     "react-native-scrollable-tab-view": "brentvatne/react-native-scrollable-tab-view#master",
-    "react-native-side-menu": "^0.14.2",
+    "react-native-side-menu": "^0.15.5",
     "react-redux": "^3.1.0",
-    "redux": "^3.0.2"
+    "redux": "^3.0.2",
+    "react-native-radio-buttons": "^0.6.0"
   }
 }

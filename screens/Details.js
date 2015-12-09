@@ -2,6 +2,7 @@ const React = require('react-native');
 const ScheduleItem = require('../components/ScheduleItem');
 const Profile = require('../components/Profile');
 const theme = require('../components/theme');
+const { SegmentedControls } = require('../vendor/react-native-radio-buttons');
 const {
   Component,
   ScrollView,
@@ -10,8 +11,8 @@ const {
   Image,
   TouchableOpacity,
   SegmentedControlIOS,
+  Platform,
   InteractionManager,
-  LinkingIOS,
 } = React;
 
 module.exports = class DetailsScreen extends Component {
@@ -34,9 +35,9 @@ module.exports = class DetailsScreen extends Component {
     });
   }
 
-  switchTextContent(e) {
+  switchTextContent(index) {
     this.setState({
-      selected: e.nativeEvent.selectedSegmentIndex,
+      selected: index,
     });
   }
 
@@ -46,7 +47,6 @@ module.exports = class DetailsScreen extends Component {
     if (this.state.renderPlaceholderOnly) {
       return (
         <View style={{ flex: 1, backgroundColor: theme.colors.white, }}>
-          <View style={theme.header}></View>
         </View>
       );
     }
@@ -58,26 +58,35 @@ module.exports = class DetailsScreen extends Component {
         <Text style={theme.textBlock}>{data.excerpt}</Text>
       </View>;
 
+    let options = ['Talk', 'Profile', ];
+
     return (
       <View style={{ flex: 1, backgroundColor: theme.colors.white, }}>
-        <View style={theme.header}>
-          <Text ref={'title'} style={theme.caption}>TALK DETAILS</Text>
+        <View>
+          <View style={[theme.header, theme.detailsHeader]}>
+            <Text ref={'title'} style={theme.caption}>TALK DETAILS</Text>
+          </View>
+
           <TouchableOpacity
             style={[theme.prevBtnContainer, { left: 0, }, ]}
             onPress={() => this.props.navigator.pop()}>
             <Image
-              source={require('image!ios7-arrow-back')}
+              source={requireImage('ios7-arrow-back')}
               style={[theme.btn, { width: 36, height: 36, }, ]}/>
           </TouchableOpacity>
         </View>
         <ScrollView>
           <ScheduleItem {...data} />
-          <SegmentedControlIOS
-            values={['Talk', 'Profile', ]}
-            selectedIndex={this.state.selected}
-            onChange={this.switchTextContent.bind(this)}
-            style={theme.segmented}/>
-          {content}
+          <View style={{marginHorizontal: 20, marginVertical: 10}}>
+            <SegmentedControls
+              options={options}
+              selectedOption={options[this.state.selected]}
+              onSelection={(option) => { this.switchTextContent(options.indexOf(option)); }}
+            />
+          </View>
+          <View style={{padding: Platform.OS === 'android' ? 20 : 0 }}>
+            {content}
+          </View>
         </ScrollView>
       </View>
     );

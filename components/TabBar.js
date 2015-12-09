@@ -9,7 +9,6 @@ const {
   Animated,
 } = React;
 
-const precomputeStyle = require('precomputeStyle');
 const deviceWidth = require('Dimensions').get('window').width;
 const TAB_UNDERLINE_REF = 'TAB_UNDERLINE';
 

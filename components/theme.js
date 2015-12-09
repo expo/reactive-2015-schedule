@@ -1,5 +1,5 @@
-const Dimensions = require('Dimensions');
-const window = Dimensions.get('window');
+const { Dimensions, Platform } = require('react-native');
+const screen = Dimensions.get('window');
 
 const colors = {
   primary: '#283046',
@@ -19,13 +19,14 @@ module.exports = {
   colors,
 
   fullscreen: {
-    width: window.width,
-    height: window.height,
+    width: screen.width,
+    height: screen.height,
   },
 
   header: {
     backgroundColor: colors.primary,
     height: 65,
+    paddingTop: Platform.OS === 'ios' ? 0 : 35,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
@@ -57,17 +58,26 @@ module.exports = {
   },
 
   prevBtnContainer: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
     height: 36,
     width: 36,
-    top: 26,
+    top: Platform.OS === 'android' ? 30 : 26,
     left: 10,
     justifyContent: 'center',
   },
 
+  detailsHeader: {
+    height: Platform.OS === 'android' ? 75 : 65,
+    paddingTop: Platform.OS === 'ios' ? 0 : 40,
+  },
+
   nextBtnContainer: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
     height: 36,
     width: 36,
-    top: 26,
+    top: Platform.OS === 'android' ? 28 : 26,
     right: 10,
     justifyContent: 'center',
   },

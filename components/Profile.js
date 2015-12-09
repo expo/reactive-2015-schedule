@@ -14,12 +14,12 @@ module.exports = class Profile extends Component {
   render() {
     const github = this.props.github ?
       <TouchableOpacity onPress={() => LinkingIOS.openURL(this.props.github)}>
-        <Image source={require('image!social-github')} style={theme.social} />
+        <Image source={requireImage('social-github')} style={theme.social} />
       </TouchableOpacity> : null;
 
     const twitter = this.props.twitter ?
       <TouchableOpacity onPress={() => LinkingIOS.openURL(this.props.twitter)}>
-        <Image source={require('image!social-twitter')} style={theme.social} />
+        <Image source={requireImage('social-twitter')} style={theme.social} />
       </TouchableOpacity> : null;
 
     const company = this.props.company ?

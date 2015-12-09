@@ -12,6 +12,7 @@ const {
   ListView,
   View,
   Text,
+  Platform,
   Image,
   TouchableOpacity,
 } = React;
@@ -35,15 +36,19 @@ class ScheduleScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, }}>
-        <View style={theme.header}>
-          <Text ref={'title'} style={theme.caption}>SCHEDULE</Text>
-          <View style={theme.prevBtnContainer}></View>
+        <View>
+          <View style={theme.header}>
+            <Text ref={'title'} style={theme.caption}>SCHEDULE</Text>
+            <View style={theme.prevBtnContainer}></View>
+          </View>
+
           <TouchableOpacity
             onPress={this.openFiltersScreen}
             style={theme.nextBtnContainer}>
-              <Image source={require('image!ios7-settings-strong')} style={theme.btn}/>
+              <Image source={requireImage('ios7-settings-strong')} style={theme.btn}/>
           </TouchableOpacity>
         </View>
+
         <ScrollableTabs edgeHitWidth={100} renderTabBar={() => <TabBar />}>
           <Schedule {...this.props} data={workshop} tabLabel="WORKSHOP" />
           <Schedule {...this.props} data={day1} tabLabel="DAY 1" />

@@ -38,8 +38,8 @@ const styles = {
   },
 };
 
-const checked = require('image!ios7-checkmark');
-const unchecked = require('image!ios7-checkmark-outline');
+const checked = requireImage('ios7-checkmark');
+const unchecked = requireImage('ios7-checkmark-outline');
 
 module.exports = class MultiSelectListItem extends Component {
   constructor(props) {
