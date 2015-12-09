@@ -10,6 +10,7 @@ const {
   Text,
   Image,
   ListView,
+  Platform,
   TouchableOpacity,
   InteractionManager,
 } = React;
@@ -32,7 +33,7 @@ class FilterScreen extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      renderPlaceholderOnly: true,
+      renderPlaceholderOnly: Platform.OS === 'ios' ? true : false,
     };
   }
 

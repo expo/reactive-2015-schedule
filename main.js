@@ -16,6 +16,7 @@ const {
   BackAndroid,
   StatusBarIOS,
   Component,
+  Platform,
   Navigator,
 } = React;
 
@@ -56,11 +57,20 @@ export default class Reactive2015 extends Component {
         {() => (
           <Navigator
             ref={(view) => { this._navigator = view; }}
+            configureScene={this.configureScene}
             renderScene={this.renderScene}
             initialRoute={{ component: ScheduleScreen, }}/>
         )}
       </Provider>
     );
+  }
+
+  configureScene(route) {
+    if (Platform.OS === 'android') {
+      return Navigator.SceneConfigs.FadeAndroid;
+    } else {
+      return Navigator.SceneConfigs.PushFromRight;
+    }
   }
 }
 

@@ -21,7 +21,7 @@ module.exports = class DetailsScreen extends Component {
 
     this.state = {
       selected: 0,
-      renderPlaceholderOnly: true,
+      renderPlaceholderOnly: Platform.OS === 'ios' ? true : false,
     };
   }
 
